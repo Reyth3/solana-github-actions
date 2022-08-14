@@ -10,13 +10,12 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  anchor-test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: cargo build --verbose
-    - name: Run tests
-      run: cargo test --verbose
+      - uses: actions/checkout@v2
+      - name: Anchor Test
+        uses: mrgnlabs/anchor-test-action@v0.4
+        with:
+          args: "" # add anchor test args, e.g. "--skip-lint"
+          workspace_dir: "." # path to the anchor workspace, e.g. "./my_workspace"
