@@ -17,6 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         name: Coppy files to container
+      - run: npm install
+        name: Install Node dependencies
       - run: rustup default stable
         name: Set Rust compailer to stable
       - run: solana-keygen new --outfile test-wallet.json --no-bip39-passphrase
@@ -25,5 +27,5 @@ jobs:
         name: Build and test program using test wallet
       - uses: actions/upload-artifact@v3
         with:
-        name: programs
-        path: target/deploy
+          name: programs
+          path: target/deploy
