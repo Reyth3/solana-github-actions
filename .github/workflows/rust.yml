@@ -15,3 +15,5 @@ jobs:
     container: projectserum/build:v0.25.0
     steps:
       - run: anchor -V
+      - uses: actions/checkout@3
+      - run: ls
