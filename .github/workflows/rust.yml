@@ -26,6 +26,7 @@ jobs:
       - run: anchor test --provider.wallet test-wallet.json
         name: Build and test program using test wallet
       - uses: actions/upload-artifact@v3
+        name: Pack the built files
         with:
           name: programs
           path: target/deploy/*.so
