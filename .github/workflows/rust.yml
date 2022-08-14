@@ -2,9 +2,9 @@ name: Rust
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 env:
   CARGO_TERM_COLOR: always
@@ -16,4 +16,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: rustup default stable
-      - run: anchor test
+      - run: solana-keygen new --outfile key.json --no-bip39-passphrase
+      - run: anchor test --provider.wallet key.json
