@@ -32,3 +32,9 @@ jobs:
         with:
           name: programs
           path: target/deploy/*.so
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    container: projectserum/build:v0.25.0
+    steps:
+      - uses: actions/checkout@v3
