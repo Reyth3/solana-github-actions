@@ -21,10 +21,12 @@ jobs:
         name: Install NPM dependencies
       - run: rustup default stable
         name: Set Rust compailer to stable
+      - run: cargo test
+        name: Program end to end tests
       - run: solana-keygen new --outfile test-wallet.json --no-bip39-passphrase
         name: Create test wallet
       - run: anchor test --provider.wallet test-wallet.json
-        name: Build and test program using test wallet
+        name: Build and integrate test program using test wallet
       - uses: actions/upload-artifact@v3
         name: Pack the built files
         with:
