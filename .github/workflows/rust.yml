@@ -19,8 +19,15 @@ jobs:
         name: Coppy files to container
       - run: npm install
         name: Install Node dependencies
-      - run: rustup default stable
+      - uses: actions-rs/toolchain@v1
         name: Set Rust compailer to stable
+        with:
+          toolchain: stable
+      - uses: actions-rs/cargo@v1
+        name: Setup Cargo
+
+      #- run: rustup default stable
+      #  name: Set Rust compailer to stable
       - run: solana-keygen new --outfile test-wallet.json --no-bip39-passphrase
         name: Create test wallet
       - run: anchor test --provider.wallet test-wallet.json
