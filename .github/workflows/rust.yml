@@ -33,7 +33,6 @@ jobs:
           name: programs
           path: target/deploy/*.so
   test-second-container:
-      name: Build and test program
       runs-on: ubuntu-latest
       container: projectserum/build:v0.25.0
       steps:
