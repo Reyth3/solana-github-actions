@@ -12,4 +12,4 @@ pub mod o {
 }
 
 #[derive(Accounts)]
-pub struct Initialize {}
+pub struct Initialize {} // A
